@@ -50,7 +50,7 @@ export function Hero() {
       </Suspense>
 
       <div className="relative z-10 max-w-4xl">
-        <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-sans font-bold mb-6 leading-[1.1] tracking-tight">
+        <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold mb-6 leading-[1.05] tracking-tighter">
           <span className="inline-block overflow-hidden">
             <span className="inline-block">Desarrollamos&nbsp;</span>
           </span>
@@ -61,8 +61,9 @@ export function Hero() {
           </span>
           <br />
           <span className="inline-block overflow-hidden">
-            <span className="inline-block">a medida para&nbsp;</span>
+            <span className="inline-block">a medida para</span>
           </span>
+          <br />
           <span className="inline-block overflow-hidden">
             <span className="inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-blue-400 bg-clip-text text-transparent">
               tu negocio

@@ -166,23 +166,6 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-foreground">Horario de Atención</h3>
-              <div className="space-y-2 text-muted-foreground">
-                <div className="flex justify-between">
-                  <span>Lunes - Viernes</span>
-                  <span className="text-foreground font-medium">9:00 - 18:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sábados</span>
-                  <span className="text-foreground font-medium">10:00 - 14:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Soporte 24/7</span>
-                  <span className="text-primary font-medium">Disponible</span>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

@@ -27,8 +27,8 @@ export function ParticleLogo() {
       const phi = Math.acos(1 - 2 * (i + 0.5) / particleCount)
       const theta = Math.PI * (1 + Math.sqrt(5)) * i
 
-      // Agregar variación en el radio para densidad
-      const r = radius + (Math.random() - 0.5) * 0.8
+      // Radio fijo para esfera perfecta (planeta)
+      const r = radius
 
       const x = r * Math.sin(phi) * Math.cos(theta)
       const y = r * Math.sin(phi) * Math.sin(theta)
