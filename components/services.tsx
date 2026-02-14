@@ -1,50 +1,73 @@
 "use client"
 
-import { ShoppingCart, Calendar, Globe, Sparkles, Database, Mail } from "lucide-react"
+import { Globe, Bot, TrendingUp, CreditCard, Shield } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import Link from "next/link"
+
+// Map icon names to components
+const iconMap = {
+  Globe,
+  Bot,
+  TrendingUp,
+  CreditCard,
+  Shield,
+}
 
 const services = [
   {
-    icon: Globe,
-    title: "Landing Pages",
-    description: "Páginas de aterrizaje optimizadas para conversión, con diseño moderno y carga ultrarrápida.",
-    features: ["SEO Optimizado", "Responsive Design", "Analytics Integrado"],
+    slug: "presencia-digital",
+    icon: "Globe",
+    title: "Presencia Digital",
+    description: "Landing Pages profesionales, E-commerce completo y CMS personalizado para gestionar tu contenido sin conocimientos técnicos.",
+    features: ["Diseño UX/UI Premium", "SEO Optimizado", "Responsive Design"],
+    price: "Desde $499",
+    featured: true,
   },
   {
-    icon: ShoppingCart,
-    title: "E-commerce",
-    description: "Tiendas online completas con pasarelas de pago, gestión de inventario y panel administrativo.",
-    features: ["Pagos Seguros", "Gestión de Stock", "Multi-moneda"],
+    slug: "automatizacion-ia",
+    icon: "Bot",
+    title: "Automatización con IA",
+    description: "Bots inteligentes que atienden clientes 24/7 en WhatsApp, Instagram, Facebook y Telegram. Con IA que aprende de cada interacción.",
+    features: ["Chatbots GPT-4", "Multi-plataforma", "Respuestas Inteligentes"],
+    price: "Desde $150/bot",
+    featured: true,
   },
   {
-    icon: Calendar,
-    title: "Sistema de Turnos",
-    description: "Plataformas de reservas para clínicas, estudios legales, peluquerías y más profesionales.",
-    features: ["Calendario Inteligente", "Notificaciones", "Gestión de Clientes"],
+    slug: "ventas-marketing",
+    icon: "TrendingUp",
+    title: "Ventas y Marketing",
+    description: "Campañas de Facebook Ads y Google Ads optimizadas, email marketing automatizado y funnels de conversión medibles.",
+    features: ["ROI Medible", "Optimización Continua", "A/B Testing"],
+    price: "Desde $200/mes",
+    featured: true,
   },
   {
-    icon: Database,
-    title: "Base de Datos",
-    description: "Arquitectura de datos escalable y segura para gestionar toda la información de tu negocio.",
-    features: ["Alta Disponibilidad", "Backups Automáticos", "Seguridad Avanzada"],
+    slug: "gestion-pagos",
+    icon: "CreditCard",
+    title: "Gestión y Pagos",
+    description: "Pasarelas de pago integradas, dashboard con métricas en tiempo real, facturación automática y gestión de inventario.",
+    features: ["Mercado Pago", "Stripe", "Dashboard Analytics"],
+    price: "Incluido",
+    featured: false,
   },
   {
-    icon: Mail,
-    title: "Email Corporativo",
-    description: "Correos profesionales con tu dominio personalizado y almacenamiento ilimitado.",
-    features: ["Dominio Propio", "Anti-spam", "Soporte 24/7"],
-  },
-  {
-    icon: Sparkles,
-    title: "CMS Personalizado",
-    description: "Sistema de gestión de contenido intuitivo para actualizar tu sitio sin conocimientos técnicos.",
-    features: ["Fácil de Usar", "Multi-idioma", "Editor Visual"],
+    slug: "seguridad-soporte",
+    icon: "Shield",
+    title: "Seguridad y Soporte",
+    description: "Certificados SSL, backups automáticos, cumplimiento GDPR y soporte técnico continuo para mantener tu negocio seguro.",
+    features: ["SSL Incluido", "Backups Diarios", "Soporte 24/7"],
+    price: "Incluido",
+    featured: false,
   },
 ]
 
-function ServiceCard({ service, index, isInView }: { service: typeof services[0]; index: number; isInView: boolean }) {
+type Service = typeof services[0]
+
+function ServiceCard({ service, index, isInView }: { service: Service; index: number; isInView: boolean }) {
+  const Icon = iconMap[service.icon as keyof typeof iconMap]
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -52,21 +75,47 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[0]
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group h-full"
     >
-      <div className="relative h-full bg-card border border-border rounded-lg p-8 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
-        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-center mb-6">
-          <service.icon className="w-7 h-7 text-primary" />
+      <Link href={`/servicios/${service.slug}`}>
+        <div className="relative h-full bg-card border border-border rounded-xl p-8 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+          {service.featured && (
+            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold">
+              Destacado
+            </div>
+          )}
+
+          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Icon className="w-7 h-7 text-primary" />
+          </div>
+
+          <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+            {service.title}
+          </h3>
+
+          <p className="text-muted-foreground mb-6 leading-relaxed">
+            {service.description}
+          </p>
+
+          <ul className="space-y-3 mb-6">
+            {service.features.map((feature, idx) => (
+              <li key={feature} className="flex items-center text-sm text-muted-foreground">
+                <div
+                  className={`w-1.5 h-1.5 rounded-full mr-3 ${
+                    idx % 2 === 0 ? "bg-blue-400" : "bg-purple-400"
+                  }`}
+                />
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center justify-between mt-auto pt-4 border-t border-border">
+            <span className="text-sm font-semibold text-foreground">{service.price}</span>
+            <span className="text-primary font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              Ver más →
+            </span>
+          </div>
         </div>
-        <h3 className="text-2xl font-serif font-bold mb-3 text-foreground">{service.title}</h3>
-        <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
-        <ul className="space-y-3">
-          {service.features.map((feature) => (
-            <li key={feature} className="flex items-center text-sm text-muted-foreground">
-              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mr-3" />
-              {feature}
-            </li>
-          ))}
-        </ul>
-      </div>
+      </Link>
     </motion.div>
   )
 }
@@ -85,18 +134,33 @@ export function Services() {
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-balance">
-            Nuestros Servicios
+            Digitalización Empresarial 360°
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Soluciones digitales completas y personalizadas para llevar tu negocio al siguiente nivel
+            Todo lo que necesitas para vender online: desde tu sitio web hasta bots con IA que atienden clientes mientras duermes
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} isInView={isInView} />
+            <ServiceCard key={service.slug} service={service} index={index} isInView={isInView} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <Link
+            href="/servicios"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg transition-colors"
+          >
+            Ver todos los servicios en detalle
+            <span className="text-2xl">→</span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   )
