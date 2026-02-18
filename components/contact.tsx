@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, Facebook, CheckCircle, Loader2 } from "lucide-react"
+import { Mail, Instagram, Linkedin, Twitter, Facebook, CheckCircle, Loader2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
@@ -28,18 +28,6 @@ const contactInfo = [
     title: "Email",
     value: "contacto@disruptlab.com",
     href: "mailto:contacto@disruptlab.com",
-  },
-  {
-    icon: Phone,
-    title: "Teléfono",
-    value: "+54 11 1234-5678",
-    href: "tel:+541112345678",
-  },
-  {
-    icon: MapPin,
-    title: "Ubicación",
-    value: "Buenos Aires, Argentina",
-    href: "#",
   },
 ]
 

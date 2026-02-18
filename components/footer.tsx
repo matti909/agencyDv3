@@ -1,13 +1,15 @@
 "use client"
 
-import { Instagram, Linkedin, Twitter, Facebook, Mail, Phone } from "lucide-react"
+import { Instagram, Linkedin, Twitter, Facebook, Mail } from "lucide-react"
+import Link from "next/link"
 
 const footerLinks = {
   servicios: [
-    { label: "Landing Pages", href: "#servicios" },
-    { label: "E-commerce", href: "#servicios" },
-    { label: "Sistema de Turnos", href: "#servicios" },
-    { label: "Base de Datos", href: "#servicios" },
+    { label: "Presencia Digital", href: "/servicios/presencia-digital" },
+    { label: "Automatización con IA", href: "/servicios/automatizacion-ia" },
+    { label: "Ventas y Marketing", href: "/servicios/ventas-marketing" },
+    { label: "Gestión y Pagos", href: "/servicios/gestion-pagos" },
+    { label: "Seguridad y Soporte", href: "/servicios/seguridad-soporte" },
   ],
   empresa: [
     { label: "Sobre Nosotros", href: "#nosotros" },
@@ -51,13 +53,6 @@ export function Footer() {
                 <Mail className="w-4 h-4" />
                 <span className="text-sm">contacto@disruptlab.com</span>
               </a>
-              <a
-                href="tel:+541112345678"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">+54 11 1234-5678</span>
-              </a>
             </div>
           </div>
 
@@ -67,9 +62,9 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.servicios.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-sm">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
