@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${service.metadata.title} | MVP Business`,
+    title: `${service.metadata.title} | Disrupt Lab`,
     description: service.metadata.description,
   }
 }
@@ -63,13 +63,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {metadata.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gradient-button text-white border-0 font-semibold rounded-lg">
-                <CheckCircle2 className="w-5 h-5 mr-2" />
-                Solicitar cotización
-              </Button>
-              <Button size="lg" variant="outline" className="font-semibold rounded-lg border-2">
-                Agendar consulta gratis
-              </Button>
+              <Link href="/#contacto">
+                <Button size="lg" className="gradient-button text-white border-0 font-semibold rounded-lg w-full">
+                  <CheckCircle2 className="w-5 h-5 mr-2" />
+                  Solicitar cotización
+                </Button>
+              </Link>
+              <Link href="/#contacto">
+                <Button size="lg" variant="outline" className="font-semibold rounded-lg border-2 w-full">
+                  Agendar consulta gratis
+                </Button>
+              </Link>
             </div>
             {metadata.price && (
               <p className="mt-6 text-lg text-muted-foreground">
@@ -111,9 +115,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               Agenda una consultoría gratuita y descubre cómo podemos ayudarte a crecer
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gradient-button text-white border-0 font-semibold rounded-lg">
-                Hablar con un especialista
-              </Button>
+              <Link href="/#contacto">
+                <Button size="lg" className="gradient-button text-white border-0 font-semibold rounded-lg w-full">
+                  Hablar con un especialista
+                </Button>
+              </Link>
               <Link href="/#servicios">
                 <Button size="lg" variant="outline" className="font-semibold rounded-lg border-2 w-full">
                   Ver otros servicios

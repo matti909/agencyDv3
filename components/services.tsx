@@ -83,7 +83,7 @@ function ServiceCard({ service, index, isInView }: { service: Service; index: nu
             </div>
           )}
 
-          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
             <Icon className="w-7 h-7 text-primary" />
           </div>
 
@@ -100,7 +100,7 @@ function ServiceCard({ service, index, isInView }: { service: Service; index: nu
               <li key={feature} className="flex items-center text-sm text-muted-foreground">
                 <div
                   className={`w-1.5 h-1.5 rounded-full mr-3 ${
-                    idx % 2 === 0 ? "bg-blue-400" : "bg-purple-400"
+                    idx % 2 === 0 ? "bg-emerald-400" : "bg-teal-400"
                   }`}
                 />
                 {feature}

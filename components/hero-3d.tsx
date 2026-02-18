@@ -14,9 +14,9 @@ export function Hero3D() {
       >
         <color attach="background" args={["#000000"]} />
         <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={2} color="#6366f1" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#a855f7" />
-        <pointLight position={[0, 10, -10]} intensity={1.5} color="#ec4899" />
+        <pointLight position={[10, 10, 10]} intensity={2} color="#2dd4bf" />
+        <pointLight position={[-10, -10, -10]} intensity={1} color="#6366f1" />
+        <pointLight position={[0, 10, -10]} intensity={1.5} color="#22d3ee" />
         <group position={[3, 0, 0]}>
           <ParticleLogo />
         </group>

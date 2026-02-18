@@ -46,10 +46,10 @@ export function ParticleLogo() {
       const colorMix = (Math.sin(theta) + 1) / 2
       const colorMix2 = (Math.cos(phi) + 1) / 2
 
-      // Mezcla entre azul, morado y rosa
-      colors[i3] = 0.4 + colorMix * 0.5 // R
-      colors[i3 + 1] = 0.3 + colorMix2 * 0.3 // G
-      colors[i3 + 2] = 0.9 + colorMix * 0.1 // B
+      // Mezcla entre teal, cyan y azul-violeta
+      colors[i3]     = 0.15 + colorMix * 0.25  // R: bajo-medio
+      colors[i3 + 1] = 0.55 + colorMix2 * 0.25 // G: medio (más que azul, menos que verde puro)
+      colors[i3 + 2] = 0.85 + colorMix * 0.10  // B: alto, mantiene frescura azul
 
       sizes[i] = 0.03 + Math.random() * 0.04
     }

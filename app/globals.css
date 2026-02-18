@@ -158,11 +158,10 @@
 .gradient-button {
   background: linear-gradient(
     90deg,
-    oklch(0.6 0.25 265) 0%,
-    oklch(0.65 0.25 285) 25%,
-    oklch(0.7 0.22 305) 50%,
-    oklch(0.65 0.25 285) 75%,
-    oklch(0.6 0.25 265) 100%
+    oklch(0.765 0.177 162) 0%,
+    oklch(0.75 0.155 185) 33%,
+    oklch(0.789 0.145 195) 66%,
+    oklch(0.765 0.177 162) 100%
   );
   background-size: 200% 100%;
   animation: gradient-shift 3s ease infinite;

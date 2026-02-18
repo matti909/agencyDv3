@@ -39,12 +39,12 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-2xl font-bold"
+            className="text-2xl font-extrabold italic"
           >
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Digital
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              Disrupt
             </span>
-            <span className="text-foreground">Agency</span>
+            <span className="text-foreground"> Lab</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -56,15 +56,17 @@ export function Navigation() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                className="text-muted-foreground hover:text-blue-400 transition-colors font-medium"
+                className="text-muted-foreground hover:text-emerald-400 transition-colors font-medium"
               >
                 {link.label}
               </motion.a>
             ))}
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-              <Button size="lg" className="gradient-button text-white border-0 font-semibold">
-                Comenzar Proyecto
-              </Button>
+              <a href="#contacto">
+                <Button size="lg" className="gradient-button text-white border-0 font-semibold">
+                  Comenzar Proyecto
+                </Button>
+              </a>
             </motion.div>
           </div>
 
@@ -90,14 +92,16 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-muted-foreground hover:text-blue-400 transition-colors py-2 font-medium"
+                  className="text-muted-foreground hover:text-emerald-400 transition-colors py-2 font-medium"
                 >
                   {link.label}
                 </a>
               ))}
-              <Button size="lg" className="gradient-button text-white border-0 font-semibold w-full">
-                Comenzar Proyecto
-              </Button>
+              <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button size="lg" className="gradient-button text-white border-0 font-semibold w-full">
+                  Comenzar Proyecto
+                </Button>
+              </a>
             </div>
           </motion.div>
         )}

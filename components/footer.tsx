@@ -36,20 +36,20 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="text-2xl font-bold mb-4">
-              <span className="text-primary">Digital</span>
-              <span className="text-foreground">Agency</span>
+            <div className="text-2xl font-extrabold italic mb-4">
+              <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">Disrupt</span>
+              <span className="text-foreground"> Lab</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed max-w-md">
               Transformamos negocios en la era digital con soluciones innovadoras y tecnología de vanguardia.
             </p>
             <div className="space-y-2">
               <a
-                href="mailto:contacto@digitalagency.com"
+                href="mailto:contacto@disruptlab.com"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">contacto@digitalagency.com</span>
+                <span className="text-sm">contacto@disruptlab.com</span>
               </a>
               <a
                 href="tel:+541112345678"
@@ -107,7 +107,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Digital Agency. Todos los derechos reservados.
+            © {new Date().getFullYear()} Disrupt Lab. Todos los derechos reservados.
           </p>
           <div className="flex gap-4">
             {socialLinks.map((social) => (

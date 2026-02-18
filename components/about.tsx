@@ -36,7 +36,7 @@ function ValueCard({ value, index, isInView }: { value: typeof values[0]; index:
       transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
     >
       <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-center mb-4">
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 flex items-center justify-center mb-4">
           <value.icon className="w-6 h-6 text-primary" />
         </div>
         <h3 className="text-xl font-serif font-bold mb-2 text-foreground">{value.title}</h3>

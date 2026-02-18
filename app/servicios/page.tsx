@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata = {
-  title: 'Servicios de Digitalización Empresarial | MVP Business',
+  title: 'Servicios de Digitalización Empresarial | Disrupt Lab',
   description: 'Descubre nuestros servicios de transformación digital: Landing pages, E-commerce, Bots con IA, Marketing Digital y más.',
 }
 
@@ -81,9 +81,11 @@ export default async function ServiciosPage() {
               Agenda una auditoría digital gratuita y te ayudamos a identificar las mejores soluciones para tu negocio
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gradient-button text-white border-0 font-semibold rounded-lg">
-                Auditoría Digital Gratis
-              </Button>
+              <Link href="/#contacto">
+                <Button size="lg" className="gradient-button text-white border-0 font-semibold rounded-lg w-full">
+                  Auditoría Digital Gratis
+                </Button>
+              </Link>
               <Link href="/#contacto">
                 <Button size="lg" variant="outline" className="font-semibold rounded-lg border-2 w-full">
                   Contactar

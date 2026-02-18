@@ -55,7 +55,7 @@ export function Hero() {
             <span className="inline-block">Desarrollamos&nbsp;</span>
           </span>
           <span className="inline-block overflow-hidden">
-            <span className="inline-block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="inline-block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
               soluciones web
             </span>
           </span>
@@ -65,7 +65,7 @@ export function Hero() {
           </span>
           <br />
           <span className="inline-block overflow-hidden">
-            <span className="inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-blue-400 bg-clip-text text-transparent">
+            <span className="inline-block bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
               tu negocio
             </span>
           </span>
@@ -77,12 +77,14 @@ export function Hero() {
         </p>
 
         <div className="hero-button">
-          <Button
-            size="lg"
-            className="gradient-button text-white border-0 text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg transition-all hover:scale-105"
-          >
-            Comenzar Proyecto
-          </Button>
+          <a href="#contacto">
+            <Button
+              size="lg"
+              className="gradient-button text-white border-0 text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg transition-all hover:scale-105"
+            >
+              Comenzar Proyecto
+            </Button>
+          </a>
         </div>
       </div>
     </section>

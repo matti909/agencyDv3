@@ -64,7 +64,7 @@ function OptimizationCard({
       className="group h-full"
     >
       <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 h-full">
-        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-center mb-6">
+        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 flex items-center justify-center mb-6">
           <optimization.icon className="w-7 h-7 text-primary" />
         </div>
         <h3 className="text-2xl font-serif font-bold mb-3 text-foreground">{optimization.title}</h3>

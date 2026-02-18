@@ -11,10 +11,10 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Digital Agency - Transformamos tu Negocio en la Era Digital",
+  title: "Disrupt Lab - Transformamos tu Negocio en la Era Digital",
   description:
-    "Agencia digital especializada en landing pages, ecommerce, sistemas de turnos y soluciones web a medida. SEO optimizado, multi-idioma, soporte 24/7.",
-  keywords: "agencia digital, desarrollo web, landing page, ecommerce, sistema de turnos, SEO, CMS",
+    "Agencia digital especializada en landing pages, ecommerce, automatización con IA y soluciones web a medida. SEO optimizado, mobile-first, soporte 24/7.",
+  keywords: "disrupt lab, agencia digital, desarrollo web, landing page, ecommerce, automatización IA, SEO, mobile design",
     generator: 'v0.app'
 }
 

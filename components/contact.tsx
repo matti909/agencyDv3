@@ -1,20 +1,33 @@
 "use client"
 
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, Facebook } from "lucide-react"
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, Facebook, CheckCircle, Loader2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+
+const schema = z.object({
+  name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  email: z.string().email("Email inválido"),
+  subject: z.string().min(3, "El asunto debe tener al menos 3 caracteres"),
+  message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres"),
+})
+
+type FormData = z.infer<typeof schema>
 
 const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "contacto@digitalagency.com",
-    href: "mailto:contacto@digitalagency.com",
+    value: "contacto@disruptlab.com",
+    href: "mailto:contacto@disruptlab.com",
   },
   {
     icon: Phone,
@@ -40,6 +53,38 @@ const socialLinks = [
 export function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [sent, setSent] = useState(false)
+  const [serverError, setServerError] = useState<string | null>(null)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>({ resolver: zodResolver(schema) })
+
+  async function onSubmit(data: FormData) {
+    setServerError(null)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+
+      const json = await res.json()
+
+      if (!res.ok) {
+        setServerError(json.error ?? "Error al enviar el mensaje")
+        return
+      }
+
+      setSent(true)
+      reset()
+    } catch {
+      setServerError("No se pudo conectar. Revisá tu conexión e intentá de nuevo.")
+    }
+  }
 
   return (
     <section id="contacto" className="py-20 md:py-32 relative" ref={ref}>
@@ -66,51 +111,92 @@ export function Contact() {
           >
             <Card className="bg-card border-border">
               <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
-                        Nombre
-                      </label>
-                      <Input id="name" placeholder="Tu nombre" className="bg-background border-border" />
+                {sent ? (
+                  <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
+                    <CheckCircle className="w-14 h-14 text-green-500" />
+                    <h3 className="text-2xl font-bold text-foreground">¡Mensaje enviado!</h3>
+                    <p className="text-muted-foreground">Te responderemos a la brevedad.</p>
+                    <Button variant="outline" onClick={() => setSent(false)}>
+                      Enviar otro mensaje
+                    </Button>
+                  </div>
+                ) : (
+                  <form className="space-y-6" noValidate onSubmit={handleSubmit(onSubmit)}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
+                          Nombre
+                        </label>
+                        <Input
+                          id="name"
+                          placeholder="Tu nombre"
+                          className="bg-background border-border"
+                          {...register("name")}
+                        />
+                        {errors.name && (
+                          <p className="text-destructive text-xs mt-1">{errors.name.message}</p>
+                        )}
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
+                          Email
+                        </label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="tu@email.com"
+                          className="bg-background border-border"
+                          {...register("email")}
+                        />
+                        {errors.email && (
+                          <p className="text-destructive text-xs mt-1">{errors.email.message}</p>
+                        )}
+                      </div>
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
-                        Email
+                      <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground">
+                        Asunto
                       </label>
                       <Input
-                        id="email"
-                        type="email"
-                        placeholder="tu@email.com"
+                        id="subject"
+                        placeholder="¿En qué podemos ayudarte?"
                         className="bg-background border-border"
+                        {...register("subject")}
                       />
+                      {errors.subject && (
+                        <p className="text-destructive text-xs mt-1">{errors.subject.message}</p>
+                      )}
                     </div>
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground">
-                      Asunto
-                    </label>
-                    <Input
-                      id="subject"
-                      placeholder="¿En qué podemos ayudarte?"
-                      className="bg-background border-border"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
-                      Mensaje
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Cuéntanos sobre tu proyecto..."
-                      rows={6}
-                      className="bg-background border-border"
-                    />
-                  </div>
-                  <Button size="lg" className="w-full bg-primary hover:bg-primary/90">
-                    Enviar Mensaje
-                  </Button>
-                </form>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
+                        Mensaje
+                      </label>
+                      <Textarea
+                        id="message"
+                        placeholder="Cuéntanos sobre tu proyecto..."
+                        rows={6}
+                        className="bg-background border-border"
+                        {...register("message")}
+                      />
+                      {errors.message && (
+                        <p className="text-destructive text-xs mt-1">{errors.message.message}</p>
+                      )}
+                    </div>
+                    {serverError && (
+                      <p className="text-destructive text-sm">{serverError}</p>
+                    )}
+                    <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Enviando...
+                        </>
+                      ) : (
+                        "Enviar Mensaje"
+                      )}
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </motion.div>
@@ -165,7 +251,6 @@ export function Contact() {
                 ))}
               </div>
             </div>
-
           </motion.div>
         </div>
       </div>
