@@ -12,15 +12,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <Hero />
-      <div className="border-t border-border" />
       <Services />
-      <div className="border-t border-border" />
       <About />
-      <div className="border-t border-border" />
       <Optimizations />
-      <div className="border-t border-border" />
       <TechMarquee />
-      <div className="border-t border-border" />
       <Contact />
       <Footer />
     </main>
