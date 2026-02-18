@@ -1,89 +1,59 @@
 "use client"
 
-import {
-  Instagram,
-  Linkedin,
-  Twitter,
-  Facebook,
-  Mail,
-  Phone,
-} from "lucide-react"
-import Image from "next/image"
+import { Instagram, Linkedin } from "lucide-react"
 
 const footerLinks = {
   servicios: [
-    { label: "Landing Pages", href: "#servicios" },
-    { label: "E-commerce", href: "#servicios" },
-    { label: "Sistema de Turnos", href: "#servicios" },
-    { label: "Base de Datos", href: "#servicios" },
+    { label: "Presencia Digital", href: "/servicios/presencia-digital" },
+    { label: "Automatizacion IA", href: "/servicios/automatizacion-ia" },
+    { label: "Ventas y Marketing", href: "/servicios/ventas-marketing" },
+    { label: "Gestion y Pagos", href: "/servicios/gestion-pagos" },
   ],
   empresa: [
     { label: "Sobre Nosotros", href: "#nosotros" },
     { label: "Optimizaciones", href: "#optimizaciones" },
     { label: "Contacto", href: "#contacto" },
-    { label: "Blog", href: "#" },
   ],
   legal: [
     { label: "Terminos y Condiciones", href: "#" },
     { label: "Politica de Privacidad", href: "#" },
-    { label: "Cookies", href: "#" },
   ],
 }
 
 const socialLinks = [
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
 ]
 
 export function Footer() {
   return (
-    <footer className="relative bg-card border-t border-border">
-      {/* Subtle top accent line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+    <footer className="relative border-t border-border/50">
+      <div className="h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="text-2xl font-extrabold italic mb-4">
+          <div className="col-span-2 md:col-span-1">
+            <div className="text-xl font-extrabold italic mb-3">
               <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
                 Disrupt
               </span>
               <span className="text-foreground"> Lab</span>
             </div>
-            <p className="text-muted-foreground mb-6 leading-relaxed max-w-md">
-              Transformamos negocios en la era digital con soluciones
-              innovadoras y tecnologia de vanguardia.
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+              Transformamos negocios en la era digital con soluciones innovadoras.
             </p>
-            <div className="space-y-3">
-              <a
-                href="mailto:contacto@disruptlab.com"
-                className="flex items-center gap-3 text-muted-foreground hover:text-emerald-400 transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                <span className="text-sm">contacto@disruptlab.com</span>
-              </a>
-              <a
-                href="tel:+541112345678"
-                className="flex items-center gap-3 text-muted-foreground hover:text-emerald-400 transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">+54 11 1234-5678</span>
-              </a>
-            </div>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-foreground font-bold mb-4">Servicios</h3>
-            <ul className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground mb-3">Servicios</h3>
+            <ul className="flex flex-col gap-2">
               {footerLinks.servicios.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-emerald-400 transition-colors text-sm"
+                    className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -94,13 +64,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-foreground font-bold mb-4">Empresa</h3>
-            <ul className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground mb-3">Empresa</h3>
+            <ul className="flex flex-col gap-2">
               {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-emerald-400 transition-colors text-sm"
+                    className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -111,13 +81,13 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-foreground font-bold mb-4">Legal</h3>
-            <ul className="space-y-3">
+            <h3 className="text-sm font-bold text-foreground mb-3">Legal</h3>
+            <ul className="flex flex-col gap-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-emerald-400 transition-colors text-sm"
+                    className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -128,22 +98,21 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} Disrupt Lab. Todos los derechos
-            reservados.
+        <div className="pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-muted-foreground">
+            {new Date().getFullYear()} Disrupt Lab. Todos los derechos reservados.
           </p>
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-emerald-500/10 hover:text-emerald-400 transition-all duration-300 text-muted-foreground"
+                className="w-8 h-8 rounded-lg bg-secondary/60 flex items-center justify-center hover:bg-emerald-500/10 hover:text-emerald-400 transition-all duration-300 text-muted-foreground"
                 aria-label={social.label}
               >
-                <social.icon className="w-4 h-4" />
+                <social.icon className="w-3.5 h-3.5" />
               </a>
             ))}
           </div>

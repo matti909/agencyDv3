@@ -1,17 +1,16 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 import { useRef, useEffect } from "react"
 import gsap from "gsap"
 import Image from "next/image"
 
 const stats = [
-  { value: "150+", label: "Proyectos Entregados" },
-  { value: "98%", label: "Clientes Satisfechos" },
+  { value: "150+", label: "Proyectos" },
+  { value: "98%", label: "Satisfaccion" },
   { value: "3x", label: "ROI Promedio" },
-  { value: "24/7", label: "Soporte Continuo" },
 ]
 
 export function Hero() {
@@ -26,34 +25,34 @@ export function Hero() {
         { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
       )
         .fromTo(
-          ".hero-title span",
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: "power3.out" },
+          ".hero-title-line",
+          { y: 80, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.12, duration: 0.9, ease: "power3.out" },
           "-=0.3"
         )
         .fromTo(
           ".hero-subtitle",
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-          "-=0.6"
-        )
-        .fromTo(
-          ".hero-button",
-          { scale: 0.8, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.8, ease: "elastic.out(1, 0.5)" },
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
           "-=0.5"
         )
         .fromTo(
-          ".hero-image-wrapper",
-          { y: 60, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
-          "-=0.6"
-        )
-        .fromTo(
-          ".hero-stat",
+          ".hero-cta",
           { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.1, duration: 0.6, ease: "power3.out" },
-          "-=0.5"
+          { y: 0, opacity: 1, stagger: 0.08, duration: 0.6, ease: "power3.out" },
+          "-=0.4"
+        )
+        .fromTo(
+          ".hero-stat-item",
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.08, duration: 0.5, ease: "power3.out" },
+          "-=0.3"
+        )
+        .fromTo(
+          ".hero-image-block",
+          { x: 60, opacity: 0, scale: 0.95 },
+          { x: 0, opacity: 1, scale: 1, duration: 1, ease: "power3.out" },
+          "-=1.2"
         )
     }, container)
 
@@ -63,108 +62,117 @@ export function Hero() {
   return (
     <section
       ref={container}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background grid pattern */}
-      <div className="absolute inset-0 grid-background opacity-40" />
+      {/* Background grid */}
+      <div className="absolute inset-0 grid-background opacity-30" />
 
       {/* Ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-emerald-500/[0.04] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-500/[0.03] rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top badge */}
-        <div className="hero-badge flex justify-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm text-sm text-muted-foreground">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Agencia Digital de Alto Impacto
-          </div>
-        </div>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left: Copy */}
+          <div>
+            {/* Badge */}
+            <div className="hero-badge mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/60 backdrop-blur-sm text-sm text-muted-foreground">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                Agencia Digital de Alto Impacto
+              </div>
+            </div>
 
-        {/* Main heading */}
-        <div className="text-center max-w-5xl mx-auto mb-8">
-          <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-sans font-bold mb-8 leading-[1.05] tracking-tighter">
-            <span className="inline-block overflow-hidden">
-              <span className="inline-block text-foreground">Desarrollamos&nbsp;</span>
-            </span>
-            <span className="inline-block overflow-hidden">
-              <span className="inline-block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-                soluciones web
+            {/* Heading */}
+            <h1 className="mb-6 leading-[1.05] tracking-tight">
+              <span className="hero-title-line block text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-foreground">
+                Soluciones web
               </span>
-            </span>
-            <br />
-            <span className="inline-block overflow-hidden">
-              <span className="inline-block text-foreground">a medida para&nbsp;</span>
-            </span>
-            <span className="inline-block overflow-hidden">
-              <span className="inline-block bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
-                tu negocio
+              <span className="hero-title-line block text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+                a medida
               </span>
-            </span>
-          </h1>
+              <span className="hero-title-line block text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-foreground">
+                para tu negocio
+              </span>
+            </h1>
 
-          <p className="hero-subtitle text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Desde landing pages hasta e-commerce y sistemas complejos. Tecnologia
-            moderna, diseno impecable y resultados medibles.
-          </p>
-        </div>
+            {/* Subtitle */}
+            <p className="hero-subtitle text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed mb-10">
+              Desde landing pages hasta e-commerce y sistemas complejos.
+              Tecnologia moderna, diseno impecable y resultados medibles.
+            </p>
 
-        {/* CTA Buttons */}
-        <div className="hero-button flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a href="#contacto">
-            <Button
-              size="lg"
-              className="gradient-button text-white border-0 text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg transition-all hover:scale-105"
-            >
-              Comenzar Proyecto
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </a>
-          <a href="#servicios">
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg border-border hover:border-emerald-400/50 transition-all"
-            >
-              <Play className="mr-2 w-4 h-4" />
-              Ver Servicios
-            </Button>
-          </a>
-        </div>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
+              <a href="#contacto" className="hero-cta">
+                <Button
+                  size="lg"
+                  className="gradient-button text-white border-0 text-base px-8 py-6 font-semibold rounded-lg transition-all hover:scale-[1.03] active:scale-[0.98]"
+                >
+                  Comenzar Proyecto
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
+              <a href="#servicios" className="hero-cta">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base px-8 py-6 font-semibold rounded-lg border-border hover:border-emerald-400/50 transition-all"
+                >
+                  Ver Servicios
+                </Button>
+              </a>
+            </div>
 
-        {/* Hero Image */}
-        <div className="hero-image-wrapper relative max-w-5xl mx-auto mb-16">
-          <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl shadow-emerald-500/5">
-            <Image
-              src="/images/hero-dashboard.jpg"
-              alt="Dashboard de analisis y metricas de Disrupt Lab mostrando resultados de clientes"
-              width={1200}
-              height={675}
-              className="w-full h-auto object-cover"
-              priority
-            />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-          </div>
-          {/* Floating glow behind image */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 rounded-2xl blur-2xl -z-10" />
-        </div>
-
-        {/* Stats Bar */}
-        <div className="relative max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className="hero-stat text-center p-4 rounded-lg border border-border bg-card/50 backdrop-blur-sm"
-              >
-                <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-1">
-                  {stat.value}
+            {/* Inline stats */}
+            <div className="flex items-center gap-8">
+              {stats.map((stat) => (
+                <div key={stat.label} className="hero-stat-item">
+                  <div className="text-2xl md:text-3xl font-bold text-foreground">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-0.5">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-xs md:text-sm text-muted-foreground">
-                  {stat.label}
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Dashboard image */}
+          <div className="hero-image-block relative">
+            <div className="relative rounded-xl overflow-hidden border border-border/60 shadow-2xl shadow-emerald-900/10">
+              <Image
+                src="/images/hero-dashboard.jpg"
+                alt="Dashboard de analisis mostrando metricas de rendimiento y resultados de proyectos digitales"
+                width={720}
+                height={480}
+                className="w-full h-auto object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Bottom fade */}
+              <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background/40 to-transparent" />
+            </div>
+
+            {/* Floating card: project count */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.6 }}
+              className="absolute -bottom-5 -left-5 md:-bottom-6 md:-left-6 bg-card border border-border rounded-lg px-5 py-3.5 shadow-lg backdrop-blur-sm"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <div>
+                  <div className="text-sm font-bold text-foreground">24/7</div>
+                  <div className="text-xs text-muted-foreground">Soporte activo</div>
                 </div>
               </div>
-            ))}
+            </motion.div>
+
+            {/* Glow behind */}
+            <div className="absolute -inset-6 bg-gradient-to-br from-emerald-500/[0.06] via-teal-500/[0.04] to-transparent rounded-2xl blur-2xl -z-10" />
           </div>
         </div>
       </div>
