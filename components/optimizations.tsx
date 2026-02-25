@@ -30,19 +30,22 @@ const optimizations = [
   {
     icon: Globe2,
     title: "Multi-idioma",
-    description: "Soporte completo para múltiples idiomas con gestión centralizada y SEO optimizado para cada región.",
+    description:
+      "Soporte completo para múltiples idiomas con gestión centralizada y SEO optimizado para cada región.",
     metrics: ["i18n", "Detección Automática", "URLs Localizadas", "RTL Support"],
   },
   {
     icon: BarChart,
     title: "Análisis de Datos",
-    description: "Dashboards personalizados con métricas clave para tomar decisiones basadas en datos reales.",
+    description:
+      "Dashboards personalizados con métricas clave para tomar decisiones basadas en datos reales.",
     metrics: ["Google Analytics", "Eventos Personalizados", "Conversiones", "Reportes"],
   },
   {
     icon: Shield,
     title: "Seguridad",
-    description: "Protección avanzada con certificados SSL, encriptación de datos y monitoreo continuo de amenazas.",
+    description:
+      "Protección avanzada con certificados SSL, encriptación de datos y monitoreo continuo de amenazas.",
     metrics: ["SSL/TLS", "Firewall", "Backups", "DDoS Protection"],
   },
 ]
@@ -52,26 +55,51 @@ function OptimizationCard({
   index,
   isInView,
 }: {
-  optimization: typeof optimizations[0]
+  optimization: (typeof optimizations)[0]
   index: number
   isInView: boolean
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{ duration: 0.55, delay: index * 0.09, ease: "easeOut" }}
       className="group h-full"
     >
-      <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 h-full">
-        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 flex items-center justify-center mb-6">
-          <optimization.icon className="w-7 h-7 text-primary" />
+      <div className="glow-card relative bg-card border border-border rounded-xl p-7 h-full overflow-hidden">
+        {/* Large faint index number for visual depth */}
+        <span
+          aria-hidden="true"
+          className="absolute top-3 right-5 text-7xl font-bold text-white/[0.03] select-none leading-none pointer-events-none"
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
+        {/* Subtle inner top highlight */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, oklch(0.765 0.177 162 / 0.45), transparent)",
+          }}
+        />
+
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 border border-emerald-500/10 flex items-center justify-center mb-5 group-hover:border-emerald-400/30 group-hover:shadow-[0_0_14px_oklch(0.765_0.177_162_/_0.2)] transition-all duration-300">
+          <optimization.icon className="w-6 h-6 text-emerald-400" />
         </div>
-        <h3 className="text-2xl font-serif font-bold mb-3 text-foreground">{optimization.title}</h3>
-        <p className="text-muted-foreground mb-6 leading-relaxed">{optimization.description}</p>
-        <div className="flex flex-wrap gap-2">
+
+        <h3 className="text-lg font-bold mb-2.5 text-foreground">{optimization.title}</h3>
+        <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
+          {optimization.description}
+        </p>
+
+        <div className="flex flex-wrap gap-1.5">
           {optimization.metrics.map((metric) => (
-            <span key={metric} className="text-xs px-3 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground border border-border">
+            <span
+              key={metric}
+              className="text-xs px-2.5 py-1 rounded-full bg-secondary/60 text-muted-foreground border border-border hover:border-emerald-400/30 hover:text-emerald-400 hover:bg-emerald-400/5 transition-all duration-200 cursor-default"
+            >
               {metric}
             </span>
           ))}
@@ -94,16 +122,23 @@ export function Optimizations() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-            Optimizaciones <span className="text-primary">Incluidas</span>
+          <div className="flex justify-center">
+            <span className="section-label">Siempre Incluido</span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 text-balance leading-[1.05] tracking-tight">
+            Optimizaciones{" "}
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              Incluidas
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Cada proyecto incluye optimizaciones avanzadas para garantizar el mejor rendimiento, accesibilidad y
-            experiencia de usuario
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
+            Cada proyecto incluye optimizaciones avanzadas para garantizar el mejor rendimiento,
+            accesibilidad y experiencia de usuario
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {optimizations.map((optimization, index) => (
             <OptimizationCard
               key={optimization.title}

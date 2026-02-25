@@ -7,20 +7,32 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
 
+function SectionDivider() {
+  return (
+    <div
+      className="h-px w-full"
+      style={{
+        background:
+          "linear-gradient(90deg, transparent 0%, oklch(0.28 0 0) 15%, oklch(0.28 0 0) 85%, transparent 100%)",
+      }}
+    />
+  )
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navigation />
       <Hero />
-      <div className="border-t border-border" />
+      <SectionDivider />
       <Services />
-      <div className="border-t border-border" />
+      <SectionDivider />
       <About />
-      <div className="border-t border-border" />
+      <SectionDivider />
       <Optimizations />
-      <div className="border-t border-border" />
+      <SectionDivider />
       <TechMarquee />
-      <div className="border-t border-border" />
+      <SectionDivider />
       <Contact />
       <Footer />
     </main>
