@@ -302,22 +302,18 @@ export function Contact() {
             <div>
               <h3 className="text-lg font-bold mb-5 text-foreground">Síguenos</h3>
               <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
+                {socialLinks.map((social) => (
+                  <div
                     key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.35, delay: 0.4 + index * 0.07, ease: "easeOut" }}
-                    className={`w-11 h-11 rounded-xl bg-card border border-border flex items-center justify-center transition-all duration-300 ${social.hoverClass}`}
-                    aria-label={social.label}
+                    title="Próximamente"
+                    className="w-11 h-11 rounded-xl bg-card border border-border/40 flex items-center justify-center opacity-30 cursor-not-allowed"
+                    aria-label={`${social.label} — próximamente`}
                   >
-                    <social.icon className="w-4 h-4" />
-                  </motion.a>
+                    <social.icon className="w-4 h-4 text-muted-foreground" />
+                  </div>
                 ))}
               </div>
+              <p className="text-xs text-muted-foreground/50 mt-3">Próximamente</p>
             </div>
 
             {/* Response time callout */}

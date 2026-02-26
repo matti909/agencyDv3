@@ -3,91 +3,44 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { Target, Users, Rocket, Award } from "lucide-react"
 
-const stats = [
-  { value: "50+", label: "Proyectos entregados" },
-  { value: "30+", label: "Clientes activos" },
-  { value: "3+", label: "Años de experiencia" },
-]
-
-const values = [
+const principles = [
   {
-    icon: Target,
-    title: "Enfoque en Resultados",
-    description:
-      "Cada proyecto está diseñado para alcanzar tus objetivos de negocio y maximizar el ROI.",
+    number: "01",
+    title: "Un solo equipo para todo",
+    description: "No coordinás un diseñador, un dev y un community manager por separado. Hablás con nosotros y nosotros resolvemos.",
   },
   {
-    icon: Users,
-    title: "Equipo Experto",
-    description:
-      "Profesionales especializados en desarrollo, diseño y estrategia digital trabajando para ti.",
+    number: "02",
+    title: "Resultados medibles desde el día uno",
+    description: "Sin promesas vagas. Cada proyecto arranca con métricas claras y termina con números reales.",
   },
   {
-    icon: Rocket,
-    title: "Tecnología de Vanguardia",
-    description:
-      "Utilizamos las últimas tecnologías y mejores prácticas para garantizar productos de calidad.",
+    number: "03",
+    title: "Velocidad sin sacrificar calidad",
+    description: "Primeras entregas en días, no meses. Iteramos rápido y ajustamos sobre la marcha.",
   },
   {
-    icon: Award,
-    title: "Calidad Garantizada",
-    description:
-      "Compromiso con la excelencia en cada línea de código y cada pixel de diseño.",
+    number: "04",
+    title: "Soporte real, no un ticket",
+    description: "Cuando algo pasa, respondemos. Sin bots, sin esperas de 72hs, sin excusas.",
   },
 ]
-
-function ValueCard({
-  value,
-  index,
-  isInView,
-}: {
-  value: (typeof values)[0]
-  index: number
-  isInView: boolean
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.55, delay: 0.2 + index * 0.1, ease: "easeOut" }}
-      className="group"
-    >
-      <div className="glow-card bg-card border border-border rounded-xl p-6 h-full overflow-hidden relative">
-        {/* Subtle inner top highlight */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, oklch(0.765 0.177 162 / 0.5), transparent)",
-          }}
-        />
-
-        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 border border-emerald-500/10 flex items-center justify-center mb-4 group-hover:border-emerald-400/30 group-hover:shadow-[0_0_14px_oklch(0.765_0.177_162_/_0.2)] transition-all duration-300">
-          <value.icon className="w-5 h-5 text-emerald-400" />
-        </div>
-        <h3 className="text-base font-bold mb-1.5 text-foreground">{value.title}</h3>
-        <p className="text-muted-foreground leading-relaxed text-sm">{value.description}</p>
-      </div>
-    </motion.div>
-  )
-}
 
 export function About() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
     <section id="nosotros" className="py-20 md:py-32 relative bg-card/20 overflow-hidden" ref={ref}>
-      {/* Large background watermark for atmospheric depth */}
+
+      {/* Background watermark */}
       <div
         aria-hidden="true"
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
       >
         <span
-          className="text-[22vw] font-extrabold leading-none text-white opacity-[0.025] whitespace-nowrap tracking-tight"
+          className="text-[22vw] font-extrabold leading-none text-white opacity-[0.022] whitespace-nowrap tracking-tight"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic" }}
         >
           Disrupt
@@ -95,83 +48,70 @@ export function About() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-          {/* Left column — text */}
+          {/* Left — positioning */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="section-label">Sobre Nosotros</span>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-[1.05] tracking-tight">
-              Transformamos tu{" "}
-              <span
-                className="font-playfair bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent"
-              >
-                visión digital
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-balance leading-[1.05] tracking-tight">
+              Tu equipo digital,{" "}
+              <span className="font-playfair bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+                sin el costo de armar uno
               </span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-5 leading-relaxed">
-              Somos una agencia digital especializada en transformar negocios y empresas en la era
-              digital. Creamos productos a medida que impulsan el crecimiento y la innovación.
-            </p>
-            <p className="text-base text-muted-foreground mb-10 leading-relaxed">
-              Nuestro enfoque combina diseño excepcional, desarrollo robusto y estrategia digital
-              para entregar soluciones que no solo se ven bien, sino que generan resultados reales.
-            </p>
 
-            {/* Keyword pills */}
-            <div className="flex flex-wrap gap-3 mb-12">
-              {["Productos a Medida", "Soporte 24/7", "Tecnología Avanzada"].map((kw, i) => (
-                <div
-                  key={kw}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/60 text-sm font-medium text-foreground"
-                >
-                  <div
-                    className={`w-1.5 h-1.5 rounded-full ${
-                      i === 1 ? "bg-teal-400" : "bg-emerald-400"
-                    }`}
-                  />
-                  {kw}
-                </div>
-              ))}
+            <div className="space-y-5 text-muted-foreground leading-relaxed">
+              <p className="text-base md:text-lg">
+                La mayoría de los negocios pierden tiempo coordinando freelancers sueltos que no se hablan entre sí: uno para la web, otro para redes, otro para los ads.
+              </p>
+              <p className="text-base">
+                Nosotros hacemos todo eso desde un solo lugar. Vos te enfocás en tu negocio — nosotros nos encargamos del resto.
+              </p>
             </div>
+          </motion.div>
 
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-4 border-t border-border pt-8">
-              {stats.map((stat, index) => (
+          {/* Right — principles list */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60 mb-6">
+              Cómo trabajamos
+            </p>
+
+            <div className="border-t border-border/50">
+              {principles.map((item, index) => (
                 <motion.div
-                  key={stat.label}
+                  key={item.number}
                   initial={{ opacity: 0, y: 12 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="text-center"
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.08, ease: "easeOut" }}
+                  className="flex gap-5 py-6 border-b border-border/50"
                 >
-                  <div className="font-playfair text-3xl md:text-4xl bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent leading-none mb-1.5">
-                    {stat.value}
+                  <span className="text-xs font-mono text-muted-foreground/40 pt-0.5 flex-shrink-0 w-5">
+                    {item.number}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground mb-1.5 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                  <div className="text-xs text-muted-foreground leading-tight">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right column — value cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-          >
-            {values.map((value, index) => (
-              <ValueCard key={value.title} value={value} index={index} isInView={isInView} />
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
   )
 }
-

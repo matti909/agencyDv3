@@ -8,6 +8,7 @@ const footerLinks = {
     { label: "Presencia Digital", href: "/servicios/presencia-digital" },
     { label: "Automatización con IA", href: "/servicios/automatizacion-ia" },
     { label: "Ventas y Marketing", href: "/servicios/ventas-marketing" },
+    { label: "Redes Sociales & Contenido", href: "/servicios/redes-contenido" },
     { label: "Gestión y Pagos", href: "/servicios/gestion-pagos" },
     { label: "Seguridad y Soporte", href: "/servicios/seguridad-soporte" },
   ],
@@ -18,9 +19,9 @@ const footerLinks = {
     { label: "Blog", href: "#" },
   ],
   legal: [
-    { label: "Términos y Condiciones", href: "#" },
-    { label: "Política de Privacidad", href: "#" },
-    { label: "Cookies", href: "#" },
+    { label: "Términos y Condiciones", href: "/legal/terminos" },
+    { label: "Política de Privacidad", href: "/legal/privacidad" },
+    { label: "Cookies", href: "/legal/cookies" },
   ],
 }
 
