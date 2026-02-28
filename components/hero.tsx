@@ -77,16 +77,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl">
-        {/* Eyebrow label */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="section-label mb-6"
-        >
-          Agencia Digital
-        </motion.div>
-
+      
         <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-bold mb-6 leading-[1.05] tracking-tighter">
           <span className="inline-block overflow-hidden">
             <span className="inline-block">Desarrollamos&nbsp;</span>
