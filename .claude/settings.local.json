@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm remove:*)",
+      "Bash(bun remove:*)",
+      "Bash(ssh-add:*)",
+      "Bash(bun add:*)",
+      "Bash(pnpm tsc --noEmit 2>&1 | grep -E \"components/\\(hero|services|about|optimizations|tech-marquee|navigation|footer|contact\\)\" || echo \"No errors in changed files\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
