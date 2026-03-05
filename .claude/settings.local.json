@@ -5,9 +5,17 @@
       "Bash(bun remove:*)",
       "Bash(ssh-add:*)",
       "Bash(bun add:*)",
-      "Bash(pnpm tsc --noEmit 2>&1 | grep -E \"components/\\(hero|services|about|optimizations|tech-marquee|navigation|footer|contact\\)\" || echo \"No errors in changed files\")"
+      "Bash(pnpm tsc --noEmit 2>&1 | grep -E \"components/\\(hero|services|about|optimizations|tech-marquee|navigation|footer|contact\\)\" || echo \"No errors in changed files\")",
+      "mcp__next-devtools__nextjs_index",
+      "Bash(pnpm add drizzle-orm pg && pnpm add -D drizzle-kit @types/pg 2>&1 | tail -5)",
+      "Bash(pnpm build 2>&1)",
+      "Bash(pnpm dlx drizzle-kit push 2>&1)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "next-devtools"
+  ]
 }
