@@ -1,6 +1,21 @@
 {
   "version": 1,
   "skills": {
+    "agent-tools": {
+      "source": "inference-sh/skills",
+      "sourceType": "github",
+      "computedHash": "220054a640e514d0bb5be4af7eb9b54f2205b2f6de6a85bd1561f0b0b06d6013"
+    },
+    "content-strategy": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "c07914262b7fb32e0a379fd5b8b2d0dc92078c543af2d0914006f2e1d61bc1b4"
+    },
+    "executing-plans": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "computedHash": "7311ed85870f37e9af1e8354c500e7c4161893d845031eed43dd1d55157da83a"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -25,6 +40,11 @@
       "source": "davila7/claude-code-templates",
       "sourceType": "github",
       "computedHash": "9614baf7a44e6c233d5af3aa77c013cfec7fa71eee5e0bfea3951b955eb92ba7"
+    },
+    "social-content": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "85ffbc05cf88939ba3ff643a315928185af16181470349dfbaad2880047c9900"
     },
     "team-composition-analysis": {
       "source": "wshobson/agents",
