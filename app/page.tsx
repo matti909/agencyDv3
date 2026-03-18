@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
 import { About } from "@/components/about"
 import { Optimizations } from "@/components/optimizations"
+import { Portfolio } from "@/components/portfolio"
 import { TechMarquee } from "@/components/tech-marquee"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -26,6 +27,8 @@ export default function Home() {
       <Hero />
       <SectionDivider />
       <Services />
+      <SectionDivider />
+      <Portfolio />
       <SectionDivider />
       <About />
       <SectionDivider />
