@@ -42,10 +42,19 @@ export function ParticleLogo() {
       originalPositions[i3 + 1] = y
       originalPositions[i3 + 2] = z
 
-      const shade = 0.08 + ((Math.sin(theta) + Math.cos(phi) + 2) / 4) * 0.2
-      colors[i3] = shade
-      colors[i3 + 1] = shade
-      colors[i3 + 2] = shade
+      // Gradiente azul vibrante → púrpura → rosa intenso
+      const t = (Math.sin(theta) + Math.cos(phi) + 2) / 4
+      if (t < 0.5) {
+        const s = t * 2
+        colors[i3]     = 0.15 + (0.55 - 0.15) * s
+        colors[i3 + 1] = 0.30 + (0.20 - 0.30) * s
+        colors[i3 + 2] = 1.0  + (0.95 - 1.0) * s
+      } else {
+        const s = (t - 0.5) * 2
+        colors[i3]     = 0.55 + (0.92 - 0.55) * s
+        colors[i3 + 1] = 0.20 + (0.15 - 0.20) * s
+        colors[i3 + 2] = 0.95 + (0.55 - 0.95) * s
+      }
 
       sizes[i] = 0.03 + Math.random() * 0.04
     }
@@ -56,10 +65,10 @@ export function ParticleLogo() {
   // Material con shader personalizado
   const particleMaterial = useMemo(() => {
     return new THREE.PointsMaterial({
-      size: 0.04,
+      size: 0.06,
       vertexColors: true,
       transparent: true,
-      opacity: 0.55,
+      opacity: 1,
       blending: THREE.NormalBlending,
       depthWrite: false,
       sizeAttenuation: true,

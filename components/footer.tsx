@@ -1,6 +1,6 @@
 "use client"
 
-import { Instagram, Linkedin, Twitter, Facebook, Mail, ArrowUpRight } from "lucide-react"
+import { Instagram, Facebook, Mail, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 
 const footerLinks = {
@@ -29,25 +29,13 @@ const footerLinks = {
 const socialLinks = [
   {
     icon: Instagram,
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/disruptslab/",
     label: "Instagram",
     hoverClass: "hover:border-pink-400/40 hover:text-pink-400 hover:bg-pink-400/5",
   },
   {
-    icon: Linkedin,
-    href: "https://linkedin.com",
-    label: "LinkedIn",
-    hoverClass: "hover:border-blue-400/40 hover:text-blue-400 hover:bg-blue-400/5",
-  },
-  {
-    icon: Twitter,
-    href: "https://twitter.com",
-    label: "Twitter / X",
-    hoverClass: "hover:border-sky-400/40 hover:text-sky-400 hover:bg-sky-400/5",
-  },
-  {
     icon: Facebook,
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/profile.php?id=61587906194290",
     label: "Facebook",
     hoverClass: "hover:border-indigo-400/40 hover:text-indigo-400 hover:bg-indigo-400/5",
   },
