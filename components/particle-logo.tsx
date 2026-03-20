@@ -42,14 +42,10 @@ export function ParticleLogo() {
       originalPositions[i3 + 1] = y
       originalPositions[i3 + 2] = z
 
-      // Gradiente de colores basado en la posición
-      const colorMix = (Math.sin(theta) + 1) / 2
-      const colorMix2 = (Math.cos(phi) + 1) / 2
-
-      // Mezcla entre teal, cyan y azul-violeta
-      colors[i3]     = 0.15 + colorMix * 0.25  // R: bajo-medio
-      colors[i3 + 1] = 0.55 + colorMix2 * 0.25 // G: medio (más que azul, menos que verde puro)
-      colors[i3 + 2] = 0.85 + colorMix * 0.10  // B: alto, mantiene frescura azul
+      const shade = 0.08 + ((Math.sin(theta) + Math.cos(phi) + 2) / 4) * 0.2
+      colors[i3] = shade
+      colors[i3 + 1] = shade
+      colors[i3 + 2] = shade
 
       sizes[i] = 0.03 + Math.random() * 0.04
     }
@@ -63,8 +59,8 @@ export function ParticleLogo() {
       size: 0.04,
       vertexColors: true,
       transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.55,
+      blending: THREE.NormalBlending,
       depthWrite: false,
       sizeAttenuation: true,
     })

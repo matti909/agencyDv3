@@ -40,7 +40,7 @@ export function About() {
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
       >
         <span
-          className="text-[22vw] font-extrabold leading-none text-white opacity-[0.022] whitespace-nowrap tracking-tight"
+          className="text-[22vw] font-extrabold leading-none text-foreground opacity-[0.03] whitespace-nowrap tracking-tight"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic" }}
         >
           Disrupt
@@ -60,7 +60,7 @@ export function About() {
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-balance leading-[1.05] tracking-tight">
               Tu equipo digital,{" "}
-              <span className="font-playfair bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="font-playfair text-muted-foreground">
                 sin el costo de armar uno
               </span>
             </h2>

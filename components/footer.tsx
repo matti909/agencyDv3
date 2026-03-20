@@ -56,13 +56,9 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="relative bg-card border-t-0">
-      {/* Gradient top border — replaces the flat border-t */}
       <div
         className="h-px w-full"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, oklch(0.765 0.177 162 / 0.5) 20%, oklch(0.75 0.155 185 / 0.6) 50%, oklch(0.789 0.145 195 / 0.5) 80%, transparent 100%)",
-        }}
+        style={{ background: "linear-gradient(90deg, transparent 0%, oklch(0.12 0 0 / 0.14) 20%, oklch(0.12 0 0 / 0.14) 80%, transparent 100%)" }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-18">
@@ -71,10 +67,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="text-2xl font-extrabold italic mb-3">
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-                Disrupt
-              </span>
-              <span className="text-foreground"> Lab</span>
+              <span className="text-foreground">Disrupt Lab</span>
             </div>
 
             {/* One-line tagline */}
@@ -89,10 +82,10 @@ export function Footer() {
 
             <a
               href="mailto:contacto@disruptlab.com"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-emerald-400 transition-colors group"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
             >
-              <div className="w-8 h-8 rounded-lg bg-emerald-400/8 border border-emerald-400/15 flex items-center justify-center group-hover:border-emerald-400/40 group-hover:bg-emerald-400/10 transition-all duration-300">
-                <Mail className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="w-8 h-8 rounded-lg bg-foreground/5 border border-foreground/10 flex items-center justify-center group-hover:border-foreground/20 group-hover:bg-foreground/8 transition-all duration-300">
+                <Mail className="w-3.5 h-3.5 text-foreground" />
               </div>
               <span className="text-sm">contacto@disruptlab.com</span>
             </a>
@@ -108,7 +101,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors duration-200 flex items-center gap-1 group"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -128,7 +121,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors duration-200"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -147,7 +140,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-emerald-400 transition-colors duration-200"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -172,7 +165,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-9 h-9 rounded-lg bg-secondary/60 border border-border flex items-center justify-center transition-all duration-300 ${social.hoverClass}`}
+                className="w-9 h-9 rounded-lg bg-secondary/60 border border-border flex items-center justify-center transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5 hover:text-foreground"
                 aria-label={social.label}
               >
                 <social.icon className="w-4 h-4" />
@@ -187,7 +180,7 @@ export function Footer() {
         className="absolute inset-x-0 bottom-0 overflow-hidden pointer-events-none select-none flex items-end justify-center"
       >
         <span
-          className="text-[13vw] font-extrabold leading-none tracking-tight text-white opacity-[0.028] whitespace-nowrap pb-4"
+          className="text-[13vw] font-extrabold leading-none tracking-tight text-foreground opacity-[0.03] whitespace-nowrap pb-4"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic" }}
         >
           DISRUPT LAB

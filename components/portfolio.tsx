@@ -56,7 +56,7 @@ function PortfolioCard({
       className="group"
     >
       <Link href={item.href} target="_blank" rel="noreferrer" className="block h-full">
-        <article className="glow-card overflow-hidden rounded-2xl border border-border/60 bg-card/40 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_20px_60px_rgba(16,185,129,0.12)]">
+        <article className="glow-card overflow-hidden rounded-2xl border border-border/60 bg-card transition-all duration-300 hover:-translate-y-1">
           <div className="relative aspect-[16/10] overflow-hidden">
             <Image
               src={item.image}
@@ -65,9 +65,9 @@ function PortfolioCard({
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
-            <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/30 backdrop-blur-sm">
-              <ArrowUpRight className="h-4 w-4 text-white transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/75 via-white/20 to-transparent" />
+            <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-foreground/10 bg-white/80 backdrop-blur-sm">
+              <ArrowUpRight className="h-4 w-4 text-foreground transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </div>
           </div>
 
@@ -76,7 +76,7 @@ function PortfolioCard({
               <p className="text-lg font-semibold text-foreground">{item.title}</p>
               <p className="text-sm text-muted-foreground">{item.description}</p>
             </div>
-            <span className="text-xs uppercase tracking-[0.24em] text-emerald-400/80">
+            <span className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
               Ver web
             </span>
           </div>
@@ -102,7 +102,7 @@ export function Portfolio() {
           <span className="section-label">Paginas Web Realizadas</span>
           <h2 className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-balance md:text-5xl lg:text-6xl">
             Algunos proyectos que ya{" "}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-muted-foreground">
               estan online
             </span>
           </h2>

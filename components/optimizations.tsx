@@ -67,26 +67,21 @@ function OptimizationCard({
       className="group h-full"
     >
       <div className="glow-card relative bg-card border border-border rounded-xl p-7 h-full overflow-hidden">
-        {/* Large faint index number for visual depth */}
         <span
           aria-hidden="true"
-          className="absolute top-3 right-5 text-7xl font-bold text-white/[0.03] select-none leading-none pointer-events-none"
+          className="absolute top-3 right-5 text-7xl font-bold text-foreground/[0.05] select-none leading-none pointer-events-none"
         >
           {String(index + 1).padStart(2, "0")}
         </span>
 
-        {/* Subtle inner top highlight */}
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, oklch(0.765 0.177 162 / 0.45), transparent)",
-          }}
+          style={{ background: "linear-gradient(90deg, transparent, oklch(0.12 0 0 / 0.22), transparent)" }}
         />
 
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 border border-emerald-500/10 flex items-center justify-center mb-5 group-hover:border-emerald-400/30 group-hover:shadow-[0_0_14px_oklch(0.765_0.177_162_/_0.2)] transition-all duration-300">
-          <optimization.icon className="w-6 h-6 text-emerald-400" />
+        <div className="w-12 h-12 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center justify-center mb-5 group-hover:border-foreground/20 transition-all duration-300">
+          <optimization.icon className="w-6 h-6 text-foreground" />
         </div>
 
         <h3 className="text-lg font-bold mb-2.5 text-foreground">{optimization.title}</h3>
@@ -98,7 +93,7 @@ function OptimizationCard({
           {optimization.metrics.map((metric) => (
             <span
               key={metric}
-              className="text-xs px-2.5 py-1 rounded-full bg-secondary/60 text-muted-foreground border border-border hover:border-emerald-400/30 hover:text-emerald-400 hover:bg-emerald-400/5 transition-all duration-200 cursor-default"
+              className="text-xs px-2.5 py-1 rounded-full bg-secondary/60 text-muted-foreground border border-border hover:border-foreground/20 hover:text-foreground hover:bg-foreground/5 transition-all duration-200 cursor-default"
             >
               {metric}
             </span>
@@ -128,7 +123,7 @@ export function Optimizations() {
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 text-balance leading-[1.05] tracking-tight">
             Optimizaciones{" "}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-muted-foreground">
               Incluidas
             </span>
           </h2>

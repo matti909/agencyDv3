@@ -62,7 +62,7 @@ function MarqueeRow({
         {duplicated.map((tech, index) => (
           <div
             key={`${tech.name}-${index}`}
-            className="flex items-center justify-center min-w-[150px] md:min-w-[168px] h-14 md:h-16 px-6 bg-card border border-border rounded-lg flex-shrink-0 hover:border-emerald-400/30 hover:bg-emerald-400/5 transition-all duration-300 group cursor-default"
+            className="flex items-center justify-center min-w-[150px] md:min-w-[168px] h-14 md:h-16 px-6 bg-card border border-border rounded-lg flex-shrink-0 hover:border-foreground/20 hover:bg-foreground/5 transition-all duration-300 group cursor-default"
           >
             <span className="text-base md:text-lg font-semibold text-muted-foreground group-hover:text-foreground whitespace-nowrap transition-colors duration-200">
               {tech.name}
@@ -83,7 +83,7 @@ export function TechMarquee() {
         </div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 tracking-tight">
           Tecnologías que{" "}
-          <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="text-muted-foreground">
             Utilizamos
           </span>
         </h2>

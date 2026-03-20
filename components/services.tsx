@@ -73,10 +73,10 @@ function ServiceRow({
       transition={{ duration: 0.45, delay: index * 0.07, ease: "easeOut" }}
     >
       <Link href={`/servicios/${service.slug}`} className="block group">
-        <div className="relative flex items-start gap-6 py-7 border-b border-border/50 transition-all duration-300 hover:border-emerald-400/30">
+        <div className="relative flex items-start gap-6 py-7 border-b border-border/50 transition-all duration-300 hover:border-foreground/20">
 
           {/* Left accent bar */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 group-hover:h-8 bg-emerald-400 rounded-full transition-all duration-300 ease-out" />
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 group-hover:h-8 bg-foreground rounded-full transition-all duration-300 ease-out" />
 
           {/* Number */}
           <span className="text-xs font-mono text-muted-foreground/50 pt-1 w-6 flex-shrink-0 select-none pl-3">
@@ -86,11 +86,11 @@ function ServiceRow({
           {/* Main content */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2.5 mb-1.5">
-              <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-emerald-400 transition-colors duration-300 leading-snug">
+              <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-foreground transition-colors duration-300 leading-snug">
                 {service.title}
               </h3>
               {service.badge && (
-                <span className="px-2 py-0.5 rounded-full bg-violet-400/10 border border-violet-400/25 text-violet-400 text-[10px] font-semibold tracking-wide uppercase flex-shrink-0">
+                <span className="px-2 py-0.5 rounded-full bg-foreground/5 border border-foreground/15 text-foreground text-[10px] font-semibold tracking-wide uppercase flex-shrink-0">
                   {service.badge}
                 </span>
               )}
@@ -116,7 +116,7 @@ function ServiceRow({
 
           {/* Right — arrow */}
           <div className="flex items-center flex-shrink-0 pt-0.5">
-            <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" />
+            <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" />
           </div>
 
         </div>
@@ -147,7 +147,7 @@ export function Services() {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-[1.05] tracking-tight">
                 Todo lo que tu negocio<br />
-                <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="text-muted-foreground">
                   necesita para crecer online
                 </span>
               </h2>
@@ -181,7 +181,7 @@ export function Services() {
         >
           <Link
             href="/servicios"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-emerald-400 transition-colors duration-200 group"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 group"
           >
             Ver descripción completa de cada servicio
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />

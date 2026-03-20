@@ -119,7 +119,7 @@ export function Contact() {
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 text-balance leading-[1.05] tracking-tight">
             Hablemos de tu{" "}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-muted-foreground">
               Proyecto
             </span>
           </h2>
@@ -141,15 +141,15 @@ export function Contact() {
               <CardContent className="p-7 md:p-8">
                 {sent ? (
                   <div className="flex flex-col items-center justify-center gap-5 py-14 text-center">
-                    <div className="w-16 h-16 rounded-full bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center">
-                      <CheckCircle className="w-8 h-8 text-emerald-400" />
+                    <div className="w-16 h-16 rounded-full bg-foreground/5 border border-foreground/15 flex items-center justify-center">
+                      <CheckCircle className="w-8 h-8 text-foreground" />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground">¡Mensaje enviado!</h3>
                     <p className="text-muted-foreground">Te responderemos a la brevedad.</p>
                     <Button
                       variant="outline"
                       onClick={() => setSent(false)}
-                      className="border-border hover:border-emerald-400/40 hover:text-emerald-400"
+                      className="border-border hover:border-foreground/20 hover:text-foreground"
                     >
                       Enviar otro mensaje
                     </Button>
@@ -167,7 +167,7 @@ export function Contact() {
                         <Input
                           id="name"
                           placeholder="Tu nombre"
-                          className="bg-background border-border focus:border-emerald-400/50 focus:ring-emerald-400/20 transition-colors"
+                          className="bg-background border-border focus:border-foreground/30 focus:ring-foreground/10 transition-colors"
                           {...register("name")}
                         />
                         {errors.name && (
@@ -185,7 +185,7 @@ export function Contact() {
                           id="email"
                           type="email"
                           placeholder="tu@email.com"
-                          className="bg-background border-border focus:border-emerald-400/50 focus:ring-emerald-400/20 transition-colors"
+                          className="bg-background border-border focus:border-foreground/30 focus:ring-foreground/10 transition-colors"
                           {...register("email")}
                         />
                         {errors.email && (
@@ -204,7 +204,7 @@ export function Contact() {
                       <Input
                         id="subject"
                         placeholder="¿En qué podemos ayudarte?"
-                        className="bg-background border-border focus:border-emerald-400/50 focus:ring-emerald-400/20 transition-colors"
+                        className="bg-background border-border focus:border-foreground/30 focus:ring-foreground/10 transition-colors"
                         {...register("subject")}
                       />
                       {errors.subject && (
@@ -223,7 +223,7 @@ export function Contact() {
                         id="message"
                         placeholder="Cuéntanos sobre tu proyecto..."
                         rows={6}
-                        className="bg-background border-border focus:border-emerald-400/50 focus:ring-emerald-400/20 transition-colors resize-none"
+                        className="bg-background border-border focus:border-foreground/30 focus:ring-foreground/10 transition-colors resize-none"
                         {...register("message")}
                       />
                       {errors.message && (
@@ -240,7 +240,7 @@ export function Contact() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full gradient-button text-white border-0 font-semibold hover:shadow-[0_0_20px_oklch(0.765_0.177_162_/_0.3)] transition-shadow"
+                      className="w-full gradient-button font-semibold transition-shadow"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -278,19 +278,18 @@ export function Contact() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                    className="flex items-start gap-4 p-4 bg-card border border-border rounded-xl hover:border-emerald-400/40 hover:bg-emerald-400/5 transition-all duration-300 group"
+                    className="relative flex items-start gap-4 p-4 bg-card border border-border rounded-xl hover:border-foreground/20 hover:bg-foreground/5 transition-all duration-300 group"
                   >
-                    {/* Accent left border line */}
-                    <div className="absolute left-0 top-1/4 bottom-1/4 w-0.5 bg-emerald-400/0 group-hover:bg-emerald-400/60 rounded-full transition-all duration-300" />
+                    <div className="absolute left-0 top-1/4 bottom-1/4 w-0.5 bg-foreground/0 group-hover:bg-foreground/50 rounded-full transition-all duration-300" />
 
-                    <div className="w-10 h-10 rounded-lg bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center flex-shrink-0 group-hover:border-emerald-400/40 group-hover:shadow-[0_0_10px_oklch(0.765_0.177_162_/_0.2)] transition-all duration-300">
-                      <info.icon className="w-5 h-5 text-emerald-400" />
+                    <div className="w-10 h-10 rounded-lg bg-foreground/5 border border-foreground/10 flex items-center justify-center flex-shrink-0 group-hover:border-foreground/20 transition-all duration-300">
+                      <info.icon className="w-5 h-5 text-foreground" />
                     </div>
                     <div>
                       <div className="text-xs text-muted-foreground mb-0.5 uppercase tracking-wide">
                         {info.title}
                       </div>
-                      <div className="text-foreground font-medium text-sm group-hover:text-emerald-400 transition-colors">
+                      <div className="text-foreground font-medium text-sm group-hover:text-foreground transition-colors">
                         {info.value}
                       </div>
                     </div>
@@ -321,11 +320,11 @@ export function Contact() {
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="p-5 rounded-xl border border-emerald-400/20 bg-emerald-400/5"
+              className="p-5 rounded-xl border border-foreground/10 bg-foreground/5"
             >
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-sm font-semibold text-emerald-400">Respuesta Rápida</span>
+                <div className="w-2 h-2 rounded-full bg-foreground animate-pulse" />
+                <span className="text-sm font-semibold text-foreground">Respuesta Rápida</span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Respondemos todos los mensajes dentro de las{" "}

@@ -35,15 +35,11 @@ export function Navigation() {
           : "bg-transparent"
       }`}
     >
-      {/* Thin gradient accent line that appears on scroll */}
       <div
         className={`absolute bottom-0 left-0 right-0 h-px transition-opacity duration-500 ${
           isScrolled ? "opacity-100" : "opacity-0"
         }`}
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, oklch(0.765 0.177 162 / 0.5) 30%, oklch(0.75 0.155 185 / 0.5) 70%, transparent 100%)",
-        }}
+        style={{ background: "linear-gradient(90deg, transparent 0%, oklch(0.12 0 0 / 0.16) 30%, oklch(0.12 0 0 / 0.16) 70%, transparent 100%)" }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,10 +52,7 @@ export function Navigation() {
             transition={{ delay: 0.2 }}
             className="text-2xl font-extrabold italic select-none"
           >
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-              Disrupt
-            </span>
-            <span className="text-foreground"> Lab</span>
+            <span className="text-foreground">Disrupt Lab</span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -71,7 +64,7 @@ export function Navigation() {
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 * index + 0.2, ease: "easeOut" }}
-                className="nav-link text-muted-foreground hover:text-emerald-400 transition-colors duration-200 font-medium text-sm tracking-wide"
+                className="nav-link text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm tracking-wide"
               >
                 {link.label}
               </motion.a>
@@ -85,7 +78,7 @@ export function Navigation() {
               <a href="#contacto">
                 <Button
                   size="sm"
-                  className="gradient-button text-white border-0 font-semibold px-5 py-2 rounded-lg text-sm"
+                  className="gradient-button font-semibold px-5 py-2 rounded-lg text-sm"
                 >
                   Comenzar Proyecto
                 </Button>
@@ -95,7 +88,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-1 rounded-md hover:bg-white/5 transition-colors"
+            className="md:hidden text-foreground p-1 rounded-md hover:bg-foreground/5 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
@@ -145,7 +138,7 @@ export function Navigation() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="text-muted-foreground hover:text-emerald-400 transition-colors py-3 px-2 font-medium text-base border-b border-border/50 last:border-0"
+                  className="text-muted-foreground hover:text-foreground transition-colors py-3 px-2 font-medium text-base border-b border-border/50 last:border-0"
                 >
                   {link.label}
                 </motion.a>
@@ -154,7 +147,7 @@ export function Navigation() {
                 <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button
                     size="lg"
-                    className="gradient-button text-white border-0 font-semibold w-full"
+                    className="gradient-button font-semibold w-full"
                   >
                     Comenzar Proyecto
                   </Button>

@@ -58,13 +58,12 @@ export function Hero() {
         <Hero3D />
       </Suspense>
 
-      {/* Ambient gradient blobs for depth — positioned away from the left-aligned text */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute right-0 top-1/4 w-[600px] h-[600px] rounded-full opacity-[0.07]"
         style={{
           background:
-            "radial-gradient(circle at center, oklch(0.765 0.177 162) 0%, oklch(0.75 0.155 185) 40%, transparent 70%)",
+            "radial-gradient(circle at center, oklch(0.12 0 0 / 0.08) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -73,7 +72,7 @@ export function Hero() {
         className="pointer-events-none absolute left-1/3 bottom-0 w-[400px] h-[400px] rounded-full opacity-[0.05]"
         style={{
           background:
-            "radial-gradient(circle at center, oklch(0.789 0.145 195) 0%, transparent 70%)",
+            "radial-gradient(circle at center, oklch(0.12 0 0 / 0.06) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -85,7 +84,7 @@ export function Hero() {
             <span className="inline-block">Desarrollamos&nbsp;</span>
           </span>
           <span className="inline-block overflow-hidden">
-            <span className="inline-block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="inline-block text-foreground">
               soluciones web
             </span>
           </span>
@@ -95,13 +94,13 @@ export function Hero() {
           </span>
           <br />
           <span className="inline-block overflow-hidden">
-            <span className="inline-block bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="inline-block text-muted-foreground">
               tu negocio
             </span>
           </span>
         </h1>
 
-        <p className="hero-subtitle text-xl md:text-lg lg:text-xl text-neutral-100 mb-10 max-w-2xl leading-relaxed">
+        <p className="hero-subtitle text-xl md:text-lg lg:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
           Desde landing pages hasta e-commerce y sistemas complejos. Tecnología
           moderna, diseño impecable y resultados medibles.
         </p>
@@ -110,7 +109,7 @@ export function Hero() {
           <a href="#contacto">
             <Button
               size="lg"
-              className="gradient-button text-white border-0 text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-[0_0_24px_oklch(0.765_0.177_162_/_0.35)]"
+              className="gradient-button text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg transition-all hover:scale-105"
             >
               Comenzar Proyecto
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -120,7 +119,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="ghost"
-              className="text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg border border-border hover:border-emerald-400/40 hover:text-emerald-400 hover:bg-emerald-400/5 transition-all duration-300"
+              className="text-base md:text-lg px-8 md:px-10 py-6 md:py-7 font-semibold rounded-lg border border-border hover:border-foreground/25 hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
             >
               Ver Servicios
             </Button>
@@ -137,7 +136,7 @@ export function Hero() {
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-5 h-5 text-emerald-400/70" />
+          <ChevronDown className="w-5 h-5 text-foreground/60" />
         </motion.div>
       </div>
     </section>

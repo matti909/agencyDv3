@@ -12,18 +12,18 @@ export function Hero3D() {
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 2]}
       >
-        <color attach="background" args={["#000000"]} />
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={2} color="#2dd4bf" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#6366f1" />
-        <pointLight position={[0, 10, -10]} intensity={1.5} color="#22d3ee" />
+        <color attach="background" args={["#ffffff"]} />
+        <ambientLight intensity={0.55} />
+        <pointLight position={[10, 10, 10]} intensity={1.2} color="#111111" />
+        <pointLight position={[-10, -10, -10]} intensity={0.6} color="#444444" />
+        <pointLight position={[0, 10, -10]} intensity={0.8} color="#888888" />
         <group position={[3, 0, 0]}>
           <ParticleLogo />
         </group>
         <EffectComposer>
           <Bloom
-            intensity={2.0}
-            luminanceThreshold={0.1}
+            intensity={0.45}
+            luminanceThreshold={0.4}
             luminanceSmoothing={0.9}
             height={300}
           />
