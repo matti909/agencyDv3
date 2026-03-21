@@ -64,7 +64,9 @@ export function Navigation() {
                 priority
               />
             </span>
-            <span className="text-foreground">Disrupt Lab</span>
+            <span className="text-foreground">
+              Disrupt Lab
+            </span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -76,7 +78,7 @@ export function Navigation() {
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 * index + 0.2, ease: "easeOut" }}
-                className="nav-link text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm tracking-wide"
+                className="nav-link transition-colors duration-200 font-medium text-sm tracking-wide text-muted-foreground hover:text-foreground"
               >
                 {link.label}
               </motion.a>
@@ -100,7 +102,7 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-1 rounded-md hover:bg-emerald-500/8 transition-colors"
+            className="md:hidden p-1 rounded-md hover:bg-emerald-500/8 transition-colors text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
