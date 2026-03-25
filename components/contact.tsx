@@ -241,6 +241,9 @@ export function Contact() {
                         </>
                       )}
                     </Button>
+                    <p className="text-xs text-center text-muted-foreground/70">
+                      Sin compromiso. Tus datos están seguros.
+                    </p>
                   </form>
                 )}
               </CardContent>
@@ -288,17 +291,18 @@ export function Contact() {
               <h3 className="text-lg font-bold mb-5 text-foreground">Síguenos</h3>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
-                  <div
+                  <a
                     key={social.label}
-                    title="Próximamente"
-                    className="w-11 h-11 rounded-xl bg-card border border-border/40 flex items-center justify-center opacity-30 cursor-not-allowed"
-                    aria-label={`${social.label} — próximamente`}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className={`w-11 h-11 rounded-xl bg-card border border-border/40 flex items-center justify-center transition-all duration-300 ${social.hoverClass}`}
                   >
                     <social.icon className="w-4 h-4 text-muted-foreground" />
-                  </div>
+                  </a>
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground/50 mt-3">Próximamente</p>
             </div>
 
             {/* Response time callout */}

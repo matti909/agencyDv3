@@ -16,7 +16,6 @@ const footerLinks = {
     { label: "Sobre Nosotros", href: "#nosotros" },
     { label: "Optimizaciones", href: "#optimizaciones" },
     { label: "Contacto", href: "#contacto" },
-    { label: "Blog", href: "#" },
   ],
   legal: [
     { label: "Términos y Condiciones", href: "/legal/terminos" },
@@ -169,7 +168,7 @@ export function Footer() {
       >
         <span
           className="text-[13vw] font-extrabold leading-none tracking-tight text-foreground opacity-[0.03] whitespace-nowrap pb-4"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: "italic" }}
+          style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontStyle: "italic" }}
         >
           DISRUPT LAB
         </span>
