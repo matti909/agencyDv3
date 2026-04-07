@@ -58,6 +58,11 @@ export function Contact() {
             href="https://wa.me/543513835368"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              if (typeof window !== "undefined" && (window as any).fbq) {
+                (window as any).fbq("track", "Lead", { content_name: "WhatsApp CTA" });
+              }
+            }}
           >
             <Button
               size="lg"
